@@ -258,7 +258,7 @@ class Home extends StatelessWidget {
                           textAlign: TextAlign.center,
                           maxLines: 2,
                           style: TextStyle(
-                            fontSize: 13,
+                            fontSize: 12,
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
                           ),
