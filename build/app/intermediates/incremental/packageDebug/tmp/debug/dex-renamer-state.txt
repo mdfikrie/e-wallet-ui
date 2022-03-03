@@ -1,0 +1,4 @@
+#Thu Mar 03 14:36:05 WIB 2022
+base.0=/Users/macbookpro/Documents/Project/e_wallet/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

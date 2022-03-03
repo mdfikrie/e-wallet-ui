@@ -1,4 +1,6 @@
+import 'package:e_wallet/data/model/menu_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,7 +14,7 @@ class Home extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: 300,
+                height: 350,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/bg.png"),
@@ -27,7 +29,7 @@ class Home extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 10, left: 15, right: 15),
+                    margin: EdgeInsets.only(top: 20, left: 15, right: 15),
                     height: 50,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,7 +124,7 @@ class Home extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 15,
-                      vertical: 10,
+                      vertical: 20,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -132,12 +134,9 @@ class Home extends StatelessWidget {
                           child: Column(
                             children: [
                               Container(
-                                height: 50,
-                                width: 50,
-                                child: Image.asset(
-                                  'assets/images/scan.png',
-                                  fit: BoxFit.cover,
-                                ),
+                                height: 45,
+                                width: 45,
+                                child: SvgPicture.asset('assets/svg/scan.svg'),
                               ),
                               SizedBox(
                                 height: 10,
@@ -159,10 +158,10 @@ class Home extends StatelessWidget {
                           child: Column(
                             children: [
                               Container(
-                                height: 50,
-                                width: 50,
-                                child: Image.asset(
-                                    'assets/images/transaction.png'),
+                                height: 45,
+                                width: 45,
+                                child: SvgPicture.asset(
+                                    'assets/svg/transaction.svg'),
                               ),
                               SizedBox(
                                 height: 10,
@@ -184,9 +183,10 @@ class Home extends StatelessWidget {
                           child: Column(
                             children: [
                               Container(
-                                height: 50,
-                                width: 50,
-                                child: Image.asset('assets/images/wallet.png'),
+                                height: 45,
+                                width: 45,
+                                child:
+                                    SvgPicture.asset('assets/svg/wallet.svg'),
                               ),
                               SizedBox(
                                 height: 10,
@@ -208,6 +208,79 @@ class Home extends StatelessWidget {
                 ],
               ),
             ],
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Wrap(
+              spacing: 12,
+              runSpacing: 15,
+              children: List.generate(
+                data.length,
+                (index) => Container(
+                  height: 100,
+                  width: 62,
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 55,
+                        width: 55,
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 5,
+                              spreadRadius: 1,
+                              offset: Offset(2, 2),
+                            ),
+                            BoxShadow(
+                              color: Colors.white,
+                              blurRadius: 5,
+                              spreadRadius: 1,
+                              offset: Offset(-2, -2),
+                            ),
+                          ],
+                        ),
+                        child: SvgPicture.asset(
+                          '${dataMenu[index].icon}',
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: 62,
+                        child: Text(
+                          '${dataMenu[index].description}',
+                          textAlign: TextAlign.center,
+                          maxLines: 2,
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            height: 180,
+            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/banner-2.png',
+                ),
+                fit: BoxFit.fitWidth,
+              ),
+            ),
           ),
         ],
       ),
