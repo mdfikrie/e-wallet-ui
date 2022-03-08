@@ -1,3 +1,4 @@
+import 'package:e_wallet/ui/bottom_navigation.dart';
 import 'package:e_wallet/ui/home.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: BottomNavigation(),
     );
   }
 }
