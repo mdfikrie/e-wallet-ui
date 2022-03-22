@@ -1,5 +1,6 @@
 import 'package:e_wallet/ui/components/bottom_navigation_item.dart';
 import 'package:e_wallet/ui/home.dart';
+import 'package:e_wallet/ui/profile.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -11,11 +12,23 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final PageController _pageController = PageController();
+    int _index = 0;
     return Scaffold(
       body: PageView(
+        controller: _pageController,
+        onPageChanged: (value) {},
         children: [
           Home(),
+          Home(),
+          Home(),
+          Profile(),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -45,39 +58,27 @@ class _BottomNavigationState extends State<BottomNavigation> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            BottomNavigationItem('assets/svg/dashboard.svg', 'Home'),
-            BottomNavigationItem('assets/svg/stats.svg', 'Riwayat'),
+            BottomNavigationItem('assets/svg/dashboard.svg', 'Home', () {
+              setState(() {
+                _index = 0;
+                _pageController.jumpToPage(0);
+              });
+            }),
+            BottomNavigationItem('assets/svg/stats.svg', 'Riwayat', () {}),
             Expanded(
               flex: 1,
               child: SizedBox(),
             ),
-            BottomNavigationItem('assets/svg/card.svg', 'Inbox'),
-            BottomNavigationItem('assets/svg/person.svg', 'Profile'),
+            BottomNavigationItem('assets/svg/card.svg', 'Inbox', () {}),
+            BottomNavigationItem('assets/svg/person.svg', 'Profile', () {
+              setState(() {
+                _index = 3;
+                _pageController.jumpToPage(_index);
+              });
+            }),
           ],
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   type: BottomNavigationBarType.fixed,
-      //
-      //   items: [
-      //     BottomNavigationBarItem(
-      //       icon: SvgPicture.asset('assets/svg/dashboard.svg'),
-      //       label: 'Home',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: SvgPicture.asset('assets/svg/dashboard.svg'),
-      //       label: 'Riwayat',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: SvgPicture.asset('assets/svg/dashboard.svg'),
-      //       label: 'Inbox',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: SvgPicture.asset('assets/svg/dashboard.svg'),
-      //       label: 'Profile',
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
