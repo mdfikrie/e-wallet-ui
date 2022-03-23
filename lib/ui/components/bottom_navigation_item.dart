@@ -4,7 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 class BottomNavigationItem extends StatelessWidget {
   final String icon;
   final String description;
-  BottomNavigationItem(this.icon, this.description);
+  final VoidCallback callback;
+  BottomNavigationItem(this.icon, this.description, this.callback);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class BottomNavigationItem extends StatelessWidget {
         height: 60,
         child: Material(
           child: InkWell(
-            onTap: () {},
+            onTap: callback,
             child: Container(
               height: 60,
               alignment: Alignment.center,
