@@ -1,4 +1,4 @@
-#Tue Mar 22 09:21:32 ICT 2022
+#Wed Mar 23 09:12:48 ICT 2022
 base.0=D\:\\project\\e-wallet-ui\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

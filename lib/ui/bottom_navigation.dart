@@ -71,10 +71,11 @@ class _BottomNavigationState extends State<BottomNavigation> {
             ),
             BottomNavigationItem('assets/svg/card.svg', 'Inbox', () {}),
             BottomNavigationItem('assets/svg/person.svg', 'Profile', () {
-              setState(() {
-                _index = 3;
-                _pageController.jumpToPage(_index);
-              });
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Profile(),
+                  ));
             }),
           ],
         ),
